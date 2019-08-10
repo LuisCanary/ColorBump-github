@@ -63,6 +63,16 @@ public class BallController : MonoBehaviour
         }
         
     }
+
+    private void FixedUpdate()
+    {
+        if (GameManager.singleton.GameEnded)
+  
+        if (GameManager.singleton.GameStarted)
+        {
+            rb.MovePosition(transform.position + Vector3.forward*5* Time.fixedDeltaTime);
+        }
+    }
     private void LateUpdate()
     {
         Vector3 pos = transform.position;
@@ -81,6 +91,17 @@ public class BallController : MonoBehaviour
         }
 
         transform.position = pos;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (GameManager.singleton.GameEnded)
+            return;
+
+        if (collision.transform.CompareTag("Death"))
+        {
+            GameManager.singleton.EndGame(false);
+        }
     }
     #endregion // MonoBehaviour
 }
