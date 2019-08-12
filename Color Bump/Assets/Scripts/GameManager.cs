@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform goalTransform;
     [SerializeField] private BallController ball;
 
+    private int index;
+
     public float EntireDistance { get; private set; }
     public float DistanceLeft { get; private set; }
 
@@ -54,14 +56,29 @@ public class GameManager : MonoBehaviour
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
         }
         else
-        {
-            Invoke("RestartGame", 2);//GOAL
+        {        
+            Invoke("NewLevel", 1);
+            //GOAL
         }
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(0);
+       index= SceneManager.GetActiveScene().buildIndex;
+       SceneManager.LoadScene(index);
+    }
+    public void NewLevel()
+    {
+       index = SceneManager.GetActiveScene().buildIndex;
+       index++;
+       if (index > 4)
+        {
+            SceneManager.LoadScene(0);
+            index = 0;
+        }
+         
+       else
+          SceneManager.LoadScene(index);
     }
 
     void Update()
