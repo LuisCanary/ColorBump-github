@@ -95,13 +95,13 @@ public class GameManager : MonoBehaviour
             DistanceLeft = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex != 0)
-        {
-            SceneManager.LoadScene(0);
-        }
-        else
-        {
-            Application.Quit();
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex != 0)
+        //{
+        //    SceneManager.LoadScene(0);
+        //}
+        //else
+        //{
+        //    Application.Quit();
+        //}
     }
 }
