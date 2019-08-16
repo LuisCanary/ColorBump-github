@@ -1352,7 +1352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallDistance: 5
-  minCamDistance: 0.05
+  minCamDistanceVsBall: 0.05
+  maxCamDistanceVsBall: 0.2
 --- !u!1 &981060563
 GameObject:
   m_ObjectHideFlags: 0

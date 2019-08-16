@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
         EntireDistance = goalTransform.position.z - startTransform.position.z;
     }
+    
 
     private void Awake()
     {
@@ -92,6 +93,15 @@ public class GameManager : MonoBehaviour
         if (ball.transform.position.z > goalTransform.transform.position.z)
         {
             DistanceLeft = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            Application.Quit();
         }
     }
 }

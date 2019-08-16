@@ -7,7 +7,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }   
+    }
     public void Play()
     {
         SceneManager.LoadScene(1);   
