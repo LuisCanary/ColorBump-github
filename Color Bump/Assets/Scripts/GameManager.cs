@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	public ParticleSystem confetiParticle;
 
-    public static GameManager singleton;
+	public static GameManager singleton;
     public bool GameStarted { get; private set; }
     public bool GameEnded { get; private set; }
 
@@ -57,8 +58,9 @@ public class GameManager : MonoBehaviour
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
         }
         else
-        {        
-            Invoke("NewLevel", 1);
+        {
+			confetiParticle.gameObject.SetActive(true);
+            Invoke("NewLevel", 1.5f);
             //GOAL
         }
     }
